@@ -4,6 +4,7 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { heroPaperAirplaneSolid } from '@ng-icons/heroicons/solid';
 import { TranslationService } from '../../services/translation.service';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contato',
@@ -25,10 +26,9 @@ export class ContatoComponent implements AfterViewInit {
   successMessage = '';
   errorMessage = '';
 
-  // Configurações do EmailJS - substitua com suas chaves
-  private readonly SERVICE_ID = 'service_gemeq1i';
-  private readonly TEMPLATE_ID = 'template_iasb7mc';
-  private readonly PUBLIC_KEY = '-nhm_RpWVZP535w7s';
+  private readonly SERVICE_ID = environment.emailjs.serviceId;
+  private readonly TEMPLATE_ID = environment.emailjs.templateId;
+  private readonly PUBLIC_KEY = environment.emailjs.publicKey;
 
   ngAfterViewInit() {
     emailjs.init(this.PUBLIC_KEY);
@@ -40,7 +40,6 @@ export class ContatoComponent implements AfterViewInit {
       this.errorMessage = '';
       this.successMessage = '';
 
-      // Template no EmailJS tem que estar com os campos {{name}}, {{email}} e {{message}}
       emailjs
         .send(this.SERVICE_ID, this.TEMPLATE_ID, {
           name: this.contato.nome,
@@ -51,11 +50,7 @@ export class ContatoComponent implements AfterViewInit {
           () => {
             this.successMessage = 'Mensagem enviada com sucesso!';
             form.resetForm();
-            this.contato = {
-              nome: '',
-              email: '',
-              mensagem: '',
-            };
+            this.contato = { nome: '', email: '', mensagem: '' };
             this.isLoading = false;
             setTimeout(() => {
               this.successMessage = '';
@@ -64,7 +59,6 @@ export class ContatoComponent implements AfterViewInit {
           (error) => {
             this.errorMessage = `Erro ao enviar mensagem: ${(error as EmailJSResponseStatus).text}`;
             this.isLoading = false;
-            console.error('Erro ao enviar email:', error);
           }
         );
     }

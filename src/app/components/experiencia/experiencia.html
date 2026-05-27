@@ -7,7 +7,7 @@
 <div class="carousel-wrapper">
   <button
     class="nav left dark:bg-darkNeutral dark:text-darkBgText bg-neutral text-lightBgText"
-    onclick="document.getElementById('carousel').scrollBy({ left: -400, behavior: 'smooth' })"
+    (click)="scrollCarousel(-400)"
   >
     &#10094;
   </button>
@@ -27,7 +27,7 @@
 
   <button
     class="nav right dark:bg-darkNeutral dark:text-darkBgText bg-neutral text-lightBgText"
-    onclick="document.getElementById('carousel').scrollBy({ left: 400, behavior: 'smooth' })"
+    (click)="scrollCarousel(400)"
   >
     &#10095;
   </button>
