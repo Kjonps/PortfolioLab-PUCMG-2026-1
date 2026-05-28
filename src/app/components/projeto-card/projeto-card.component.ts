@@ -10,6 +10,7 @@ import { ionLogoGithub } from '@ng-icons/ionicons';
   providers: [provideIcons({ ionLogoGithub })],
 })
 export class ProjetoCardComponent {
+
   @Input() suptitle: string = '';
   @Input() githubLink: string = '';
   @Input({ required: true }) title: string = '';

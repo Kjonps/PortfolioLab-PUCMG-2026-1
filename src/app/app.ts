@@ -9,6 +9,7 @@ declare let particlesJS: any;
 
 let theme: 'light' | 'dark' = 'dark';
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, HeaderComponent, NgIcon],
