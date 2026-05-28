@@ -47,6 +47,7 @@ export class ExperienciaComponent {
     detailKey: 'Especialista em vendas e consultoria de soluções para automação comercial e tecnológica.', 
     image: 'https://amiltech.com.br/wp-content/uploads/2021/05/logo-amiltech.png' 
   },
+
   // --- PROTÓTIPOS PARA VOCÊ COMPLETAR ---
   { 
     titleKey: 'Título da Nova Experiência', 

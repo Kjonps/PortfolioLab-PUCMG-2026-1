@@ -12,6 +12,7 @@ export class TranslationService {
     this.loadTranslation(this.currentLang);
   }
 
+
   ngOnInit() {
     console.log('ts service started');
   }

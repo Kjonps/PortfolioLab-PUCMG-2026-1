@@ -12,4 +12,5 @@ import { TranslationService } from '../../services/translation.service';
 })
 export class ProjetosComponent {
   tSer = inject(TranslationService);
+
 }
